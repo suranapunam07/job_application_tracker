@@ -148,3 +148,27 @@ def create_interview(
     db.refresh(new_interview)
 
     return new_interview
+
+@router.get(
+    "/{application_id}/interviews",
+    response_model=list[InterviewResponse]
+)
+def get_interviews(
+    application_id: int,
+    user_id: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    application = db.query(Application).filter(
+        Application.id == application_id,
+        Application.user_id == int(user_id)
+    ).first()
+
+    if not application:
+        raise HTTPException(
+            status_code=404,
+            detail="Application not found"
+        )
+
+    return db.query(Interview).filter(
+        Interview.application_id == application_id
+    ).all()
