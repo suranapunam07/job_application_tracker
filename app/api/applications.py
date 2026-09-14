@@ -9,7 +9,8 @@ from app.schemas.application import (
     ApplicationResponse
 )
 from app.schemas.interview import InterviewCreate, InterviewResponse
-
+from app.models.note import Note
+from app.schemas.note import NoteCreate, NoteResponse
 from app.core.security import get_current_user
 
 
@@ -172,3 +173,35 @@ def get_interviews(
     return db.query(Interview).filter(
         Interview.application_id == application_id
     ).all()
+
+@router.post(
+    "/{application_id}/notes",
+    response_model=NoteResponse
+)
+def create_note(
+    application_id: int,
+    note_data: NoteCreate,
+    user_id: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    application = db.query(Application).filter(
+        Application.id == application_id,
+        Application.user_id == int(user_id)
+    ).first()
+
+    if not application:
+        raise HTTPException(
+            status_code=404,
+            detail="Application not found"
+        )
+
+    new_note = Note(
+        content=note_data.content,
+        application_id=application_id
+    )
+
+    db.add(new_note)
+    db.commit()
+    db.refresh(new_note)
+
+    return new_note
