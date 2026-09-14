@@ -48,3 +48,12 @@ def create_application(
     db.refresh(new_application)
 
     return new_application
+
+@router.get("/",response_model=list[ApplicationResponse])
+def get_applications(
+    user_id: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    applications = db.query(Application).filter(Application.user_id == int(user_id)).all()#user cannot see the other user's data
+
+    return applications
