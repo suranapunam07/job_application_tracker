@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Tracker - Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="sidebar-icon">💼</div>
+                <span>Job Tracker</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item active">
+                    <span>▣</span>
+                    Dashboard
+                </a>
+
+                <a href="applications.html" class="nav-item">
+                    <span>▤</span>
+                    Applications
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◷</span>
+                    Interviews
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>□</span>
+                    Notes
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>▥</span>
+                    Statistics
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+                <a href="index.html" class="nav-item logout">
+                    <span>↪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <h1>Good Morning, Punam! 👋</h1>
+                    <p>Here's your job application overview.</p>
+                </div>
+
+                <div class="profile">
+                    <span class="profile-icon">PS</span>
+                    <span>Punam Surana</span>
+                    <span>⌄</span>
+                </div>
+
+            </header>
+
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">▣</div>
+                    <div>
+                        <p>Total Applications</p>
+                        <h2 id="totalApplications">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <div>
+                        <p>Applied</p>
+                        <h2 id="appliedApplications">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">◷</div>
+                    <div>
+                        <p>Interviews</p>
+                        <h2 id="interviewApplications">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon red">×</div>
+                    <div>
+                        <p>Rejected</p>
+                        <h2 id="rejectedApplications">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">★</div>
+                    <div>
+                        <p>Offers</p>
+                        <h2 id="offerApplications">0</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section class="dashboard-grid">
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+                        <h2>Recent Applications</h2>
+
+                        <a href="applications.html">
+                            View All
+                        </a>
+                    </div>
+
+                    <div id="recentApplications">
+
+                        <p class="empty-message">
+                            No applications yet.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+                        <h2>Upcoming Deadlines</h2>
+
+                        <a href="applications.html">
+                            View All
+                        </a>
+                    </div>
+
+                    <div id="upcomingDeadlines">
+
+                        <p class="empty-message">
+                            No upcoming deadlines.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
