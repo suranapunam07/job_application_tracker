@@ -205,3 +205,27 @@ def create_note(
     db.refresh(new_note)
 
     return new_note
+
+@router.get(
+    "/{application_id}/notes",
+    response_model=list[NoteResponse]
+)
+def get_notes(
+    application_id: int,
+    user_id: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    application = db.query(Application).filter(
+        Application.id == application_id,
+        Application.user_id == int(user_id)
+    ).first()
+
+    if not application:
+        raise HTTPException(
+            status_code=404,
+            detail="Application not found"
+        )
+
+    return db.query(Note).filter(
+        Note.application_id == application_id
+    ).all()
