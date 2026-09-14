@@ -3,10 +3,12 @@ from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
 from app.models.application import Application
+from app.models.interview import Interview
 from app.schemas.application import (
     ApplicationCreate,
     ApplicationResponse
 )
+from app.schemas.interview import InterviewCreate, InterviewResponse
 
 from app.core.security import get_current_user
 
@@ -112,3 +114,37 @@ def delete_application(
     return {
         "message": "Application deleted successfully"
     }
+
+@router.post(
+    "/{application_id}/interviews",
+    response_model=InterviewResponse
+)
+def create_interview(
+    application_id: int,
+    interview_data: InterviewCreate,
+    user_id: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    application = db.query(Application).filter(
+        Application.id == application_id,
+        Application.user_id == int(user_id)
+    ).first()
+
+    if not application:
+        raise HTTPException(
+            status_code=404,
+            detail="Application not found"
+        )
+
+    new_interview = Interview(
+        interview_date=interview_data.interview_date,
+        interview_type=interview_data.interview_type,
+        result=interview_data.result,
+        application_id=application_id
+    )
+
+    db.add(new_interview)
+    db.commit()
+    db.refresh(new_interview)
+
+    return new_interview
