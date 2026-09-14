@@ -1,0 +1,50 @@
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+
+from app.db.database import SessionLocal
+from app.models.application import Application
+from app.schemas.application import (
+    ApplicationCreate,
+    ApplicationResponse
+)
+
+from app.core.security import get_current_user
+
+
+router = APIRouter(
+    prefix="/applications",
+    tags=["Applications"]
+)
+
+
+def get_db():
+    db = SessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+@router.post("/", response_model=ApplicationResponse)
+def create_application(
+    application_data: ApplicationCreate,
+    user_id: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    new_application = Application(
+        company_name=application_data.company_name,
+        job_title=application_data.job_title,
+        job_url=application_data.job_url,
+        status=application_data.status,
+        applied_date=application_data.applied_date,
+        deadline=application_data.deadline,
+        salary=application_data.salary,
+        user_id=int(user_id)
+    )
+
+    db.add(new_application)
+    db.commit()
+    db.refresh(new_application)
+
+    return new_application
