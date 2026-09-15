@@ -2,52 +2,54 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Tracker - Sign Up</title>
+
+    <title>JobTrack - Create Account</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <div class="login-container">
+    <div class="auth-page">
 
-        <div class="login-brand">
-            <div class="brand-icon">💼</div>
+        <div class="auth-container">
 
-            <h1>Job Tracker</h1>
-
-            <p>
-                Track your job applications, interviews and career progress.
-            </p>
-
-            <div class="brand-features">
-                <div>✓ Organize your applications</div>
-                <div>✓ Keep track of interviews</div>
-                <div>✓ Never miss a deadline</div>
+            <div class="brand-logo">
+                <div class="brand-icon">J</div>
+                <span>JobTrack</span>
             </div>
 
-            <span class="brand-tagline">
-                Better tracking → Better opportunities
-            </span>
-        </div>
+            <div class="auth-card">
 
+                <div class="auth-header">
 
-        <div class="login-form-container">
+                    <h1>Create your account</h1>
 
-            <div class="login-form">
+                    <p>
+                        Start organizing your job search today
+                    </p>
 
-                <h2>Create Account</h2>
-
-                <p class="subtitle">
-                    Sign up to start tracking your applications
-                </p>
-
+                </div>
 
                 <form id="signupForm">
 
-                    <div class="input-group">
-                        <label for="name">Full Name</label>
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full name
+                        </label>
 
                         <input
                             type="text"
@@ -55,23 +57,29 @@
                             placeholder="Enter your name"
                             required
                         >
+
                     </div>
 
+                    <div class="form-group">
 
-                    <div class="input-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">
+                            Email address
+                        </label>
 
                         <input
                             type="email"
                             id="email"
-                            placeholder="Enter your email"
+                            placeholder="you@example.com"
                             required
                         >
+
                     </div>
 
+                    <div class="form-group">
 
-                    <div class="input-group">
-                        <label for="password">Password</label>
+                        <label for="password">
+                            Password
+                        </label>
 
                         <input
                             type="password"
@@ -79,38 +87,44 @@
                             placeholder="Create a password"
                             required
                         >
-                    </div>
 
+                    </div>
 
                     <button
                         type="submit"
-                        class="login-button"
+                        class="primary-btn"
                     >
-                        Create Account
+                        Create account
                     </button>
 
                 </form>
 
+                <p
+                    id="signupMessage"
+                    class="message"
+                ></p>
 
-                <p id="signupMessage"></p>
+                <div class="auth-footer">
 
-
-                <p class="signup-text">
-
-                    Already have an account?
+                    <span>
+                        Already have an account?
+                    </span>
 
                     <a href="index.html">
-                        Login
+                        Sign in
                     </a>
 
-                </p>
+                </div>
 
             </div>
+
+            <p class="copyright">
+                © 2026 JobTrack. Built for better career management.
+            </p>
 
         </div>
 
     </div>
-
 
     <script src="js/signup.js"></script>
 
