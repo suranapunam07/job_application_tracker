@@ -2,175 +2,303 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Job Tracker - Dashboard</title>
+    <title>JobTrack - Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <div class="dashboard-container">
+    <div class="dashboard">
 
         <aside class="sidebar">
 
-            <div class="sidebar-logo">
-                <div class="sidebar-icon">💼</div>
-                <span>Job Tracker</span>
+            <div class="sidebar-brand">
+
+                <div class="brand-icon">
+                    J
+                </div>
+
+                <span>
+                    JobTrack
+                </span>
+
             </div>
 
             <nav class="sidebar-nav">
 
-                <a href="dashboard.html" class="nav-item active">
-                    <span>▣</span>
+                <a
+                    href="dashboard.html"
+                    class="nav-item active"
+                >
+                    <span class="nav-icon">⌂</span>
                     Dashboard
                 </a>
 
-                <a href="applications.html" class="nav-item">
-                    <span>▤</span>
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">▣</span>
                     Applications
                 </a>
 
-                <a href="#" class="nav-item">
-                    <span>◷</span>
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">◷</span>
                     Interviews
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>□</span>
-                    Notes
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>▥</span>
-                    Statistics
                 </a>
 
             </nav>
 
             <div class="sidebar-bottom">
 
-                <a href="#" class="nav-item">
-                    <span>⚙</span>
-                    Settings
-                </a>
-
-                <a href="index.html" class="nav-item logout">
+                <button
+                    id="logoutButton"
+                    class="logout-btn"
+                >
                     <span>↪</span>
                     Logout
-                </a>
+                </button>
 
             </div>
 
         </aside>
 
-
         <main class="main-content">
 
-            <header class="topbar">
+            <header class="dashboard-header">
 
                 <div>
-                    <h1>Good Morning, Punam! 👋</h1>
-                    <p>Here's your job application overview.</p>
-                </div>
 
-                <div class="profile">
-                    <span class="profile-icon">PS</span>
-                    <span>Punam Surana</span>
-                    <span>⌄</span>
+                    <p class="eyebrow">
+                        OVERVIEW
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p class="dashboard-subtitle">
+                        Track your job search and stay organized.
+                    </p>
+
                 </div>
 
             </header>
 
-
             <section class="stats-grid">
 
                 <div class="stat-card">
-                    <div class="stat-icon blue">▣</div>
-                    <div>
-                        <p>Total Applications</p>
-                        <h2 id="totalApplications">0</h2>
+
+                    <div class="stat-top">
+                        <span class="stat-label">
+                            Total Applications
+                        </span>
+
+                        <div class="stat-icon blue">
+                            ▣
+                        </div>
                     </div>
+
+                    <div
+                        id="totalApplications"
+                        class="stat-number"
+                    >
+                        0
+                    </div>
+
+                    <p class="stat-description">
+                        All applications
+                    </p>
+
                 </div>
 
-
                 <div class="stat-card">
-                    <div class="stat-icon green">✓</div>
-                    <div>
-                        <p>Applied</p>
-                        <h2 id="appliedApplications">0</h2>
+
+                    <div class="stat-top">
+
+                        <span class="stat-label">
+                            Applied
+                        </span>
+
+                        <div class="stat-icon purple">
+                            ↑
+                        </div>
+
                     </div>
+
+                    <div
+                        id="appliedApplications"
+                        class="stat-number"
+                    >
+                        0
+                    </div>
+
+                    <p class="stat-description">
+                        Applications submitted
+                    </p>
+
                 </div>
 
-
                 <div class="stat-card">
-                    <div class="stat-icon purple">◷</div>
-                    <div>
-                        <p>Interviews</p>
-                        <h2 id="interviewApplications">0</h2>
+
+                    <div class="stat-top">
+
+                        <span class="stat-label">
+                            Interviews
+                        </span>
+
+                        <div class="stat-icon orange">
+                            ◷
+                        </div>
+
                     </div>
+
+                    <div
+                        id="interviewApplications"
+                        class="stat-number"
+                    >
+                        0
+                    </div>
+
+                    <p class="stat-description">
+                        Interview stage
+                    </p>
+
                 </div>
 
-
                 <div class="stat-card">
-                    <div class="stat-icon red">×</div>
-                    <div>
-                        <p>Rejected</p>
-                        <h2 id="rejectedApplications">0</h2>
+
+                    <div class="stat-top">
+
+                        <span class="stat-label">
+                            Offers
+                        </span>
+
+                        <div class="stat-icon green">
+                            ✓
+                        </div>
+
                     </div>
+
+                    <div
+                        id="offerApplications"
+                        class="stat-number"
+                    >
+                        0
+                    </div>
+
+                    <p class="stat-description">
+                        Offers received
+                    </p>
+
                 </div>
 
-
                 <div class="stat-card">
-                    <div class="stat-icon orange">★</div>
-                    <div>
-                        <p>Offers</p>
-                        <h2 id="offerApplications">0</h2>
+
+                    <div class="stat-top">
+
+                        <span class="stat-label">
+                            Rejected
+                        </span>
+
+                        <div class="stat-icon red">
+                            ×
+                        </div>
+
                     </div>
+
+                    <div
+                        id="rejectedApplications"
+                        class="stat-number"
+                    >
+                        0
+                    </div>
+
+                    <p class="stat-description">
+                        Applications rejected
+                    </p>
+
                 </div>
 
             </section>
-
 
             <section class="dashboard-grid">
 
                 <div class="dashboard-card">
 
                     <div class="card-header">
-                        <h2>Recent Applications</h2>
 
-                        <a href="applications.html">
-                            View All
-                        </a>
+                        <div>
+
+                            <h2>
+                                Recent Applications
+                            </h2>
+
+                            <p>
+                                Your latest job applications
+                            </p>
+
+                        </div>
+
+                        <span class="card-symbol">
+                            ▣
+                        </span>
+
                     </div>
 
                     <div id="recentApplications">
 
                         <p class="empty-message">
-                            No applications yet.
+                            Loading applications...
                         </p>
 
                     </div>
 
                 </div>
 
-
                 <div class="dashboard-card">
 
                     <div class="card-header">
-                        <h2>Upcoming Deadlines</h2>
 
-                        <a href="applications.html">
-                            View All
-                        </a>
+                        <div>
+
+                            <h2>
+                                Upcoming Deadlines
+                            </h2>
+
+                            <p>
+                                Never miss an important deadline
+                            </p>
+
+                        </div>
+
+                        <span class="card-symbol">
+                            ◷
+                        </span>
+
                     </div>
 
                     <div id="upcomingDeadlines">
 
                         <p class="empty-message">
-                            No upcoming deadlines.
+                            Loading deadlines...
                         </p>
 
                     </div>
@@ -182,7 +310,6 @@
         </main>
 
     </div>
-
 
     <script src="js/dashboard.js"></script>
 
