@@ -1,15 +1,16 @@
 const signupForm = document.getElementById("signupForm");
-const signupMessage = document.getElementById("signupMessage");
-
 
 signupForm.addEventListener("submit", async function(event) {
-
     event.preventDefault();
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    const message = document.getElementById("signupMessage");
+
+    message.textContent = "";
+    message.style.color = "";
 
     try {
 
@@ -30,35 +31,37 @@ signupForm.addEventListener("submit", async function(event) {
             }
         );
 
-
         const data = await response.json();
-
 
         if (!response.ok) {
 
-            signupMessage.textContent = data.detail;
+            message.style.color = "#dc2626";
+
+            message.textContent =
+                data.detail || "Signup failed";
 
             return;
         }
 
+        message.style.color = "#16a34a";
 
-        signupMessage.textContent =
-            "Account created successfully!";
-
+        message.textContent =
+            "Account created successfully! Redirecting...";
 
         setTimeout(function() {
 
             window.location.href = "index.html";
 
-        }, 1000);
-
+        }, 1200);
 
     } catch (error) {
 
-        signupMessage.textContent =
-            "Unable to connect to the server.";
-
         console.error(error);
-    }
 
+        message.style.color = "#dc2626";
+
+        message.textContent =
+            "Unable to connect to server. Make sure FastAPI is running.";
+
+    }
 });
