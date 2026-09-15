@@ -1,74 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Job Tracker - Login</title>
+    <title>JobTrack - Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <div class="login-container">
+    <div class="auth-page">
 
-        <div class="login-brand">
+        <div class="auth-container">
 
-            <div class="brand-icon">
-                💼
+            <div class="brand-logo">
+                <div class="brand-icon">J</div>
+                <span>JobTrack</span>
             </div>
 
-            <h1>Job Tracker</h1>
+            <div class="auth-card">
 
-            <p>
-                Track your job applications,
-                interviews and career progress.
-            </p>
+                <div class="auth-header">
+                    <h1>Welcome back</h1>
 
-            <div class="brand-features">
-                <div>✓ Organize your applications</div>
-                <div>✓ Keep track of interviews</div>
-                <div>✓ Never miss a deadline</div>
-            </div>
-
-            <span class="brand-tagline">
-                Better tracking → Better opportunities
-            </span>
-
-        </div>
-
-
-        <div class="login-form-container">
-
-            <div class="login-form">
-
-                <h2>Welcome Back</h2>
-
-                <p class="subtitle">
-                    Sign in to your account
-                </p>
-
+                    <p>
+                        Sign in to manage your job applications
+                    </p>
+                </div>
 
                 <form id="loginForm">
 
-                    <div class="input-group">
+                    <div class="form-group">
 
                         <label for="email">
-                            Email Address
+                            Email address
                         </label>
 
                         <input
                             type="email"
                             id="email"
-                            placeholder="Enter your email"
+                            placeholder="you@example.com"
                             required
                         >
 
                     </div>
 
-
-                    <div class="input-group">
+                    <div class="form-group">
 
                         <label for="password">
                             Password
@@ -83,33 +71,44 @@
 
                     </div>
 
-
                     <button
                         type="submit"
-                        class="login-button"
+                        class="primary-btn"
                     >
-                        Login
+                        Sign in
                     </button>
 
                 </form>
 
+                <p
+                    id="errorMessage"
+                    class="error-message"
+                ></p>
 
-                <p id="message"></p>
+                <div class="auth-footer">
 
+                    <span>
+                        Don't have an account?
+                    </span>
 
-                <p class="signup-text">
-                    Don't have an account?
-                    <a href="signupLink">Sign Up</a>
-                </p>
+                    <a href="signup.html">
+                        Create account
+                    </a>
+
+                </div>
 
             </div>
+
+            <p class="copyright">
+                © 2026 JobTrack. Built for better career management.
+            </p>
 
         </div>
 
     </div>
 
-
     <script src="js/auth.js"></script>
 
 </body>
+
 </html>
