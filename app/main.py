@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from importlib import import_module
 
 from app.api.auth import router as auth_router
@@ -6,9 +7,19 @@ from app.api.applications import router as applications_router
 from app.api.stats import router as stats_router
 from app.core.scheduler import start_scheduler
 
-
 app = FastAPI(
     title="Job Application Tracker"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
 )
 
 
